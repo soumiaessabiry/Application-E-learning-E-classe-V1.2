@@ -30,3 +30,6 @@ a:hover{
   .phov:hover{
     background:rgba(236, 228, 228, 0.198) !important;
   }
+  body{
+      overflow-y: scroll !important;
+  }

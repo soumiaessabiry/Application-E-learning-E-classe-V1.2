@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="styleboot/css/bootstrap.min.css">
      <link rel="stylesheet" href="styleboot/js/bootstrap.min.js">
     
-    <title>Document</title>
+    <title>add student</title>
    
 </head>
 <body>
 <div class="continaire  col offset-md-3">
-        <form method="POST" action=#>
+        <form method="POST" action="indexstudent.php">
             <label for="nom" class="label-class">
                 Name:
                 <input type="text" name="nom" id="nom">
@@ -29,7 +29,7 @@
             <br><br>
             <label for="phone" class="label-class">
                Phone:
-                <input type="number" name="phone" id="phone">
+                <input type="text" name="phone" id="phone">
             </label>
             <br><br>
             <label for="enroll" class="label-class">
@@ -47,14 +47,49 @@
     </div>   
     <?php
     // recuperer les donner de formulaire
-       $nom=$_POST['nom'];
-       $email=$_POST['email'];
-       $phone=$_POST['phone'];
-       $enroll=$_POST['enroll'];
-       $date=$_POST['date'];
+      @$nom=htmlspecialchars($_POST['nom']);
+       @$email=$_POST['email'];
+       @$phone=$_POST['phone'];
+       @$enroll=$_POST['enroll'];
+       @$date=$_POST['date'];
     //    echo"hello".$nom.$email.$phone;
+       if (isset($_POST['submit'])) {
+        if(empty($_POST['nom'])) {
+            echo" add user name !!!<br>";
+        }else {
+            $nom=htmlspecialchars($_POST['nom']);
+        }
 
-   
+        if(empty($_POST['email'])) {
+            echo" add user email !!!<br>";
+        }else {
+            $nom=htmlspecialchars($_POST['email']);
+        }
+        if(empty($_POST['phone'])) {
+            echo" add user phone !!!<br>";
+        }else {
+            $nom=htmlspecialchars($_POST['phone']);
+        }
+        if(empty($_POST['enroll'])) {
+            echo" add user enroll !!!<br>";
+        }else {
+            $nom=htmlspecialchars($_POST['enroll']);
+        }
+        if(empty($_POST['date'])) {
+            echo" add user date !!!<br>";
+        }else {
+            $nom=htmlspecialchars($_POST['date']);
+        }
+       }
+       
+       mysqli_select_db($conn,'e_classe_db');
+       $sql=" INSERT INTO `students`(`name`, `email`, `phone`, `enroll_number`, `date_of_admission`) VALUES ('$nom','$email','$phone','$enroll','$date')";
+       $res=mysqli_query($conn,$sql);
+       if (!$res) {
+           echo"vous avez un probleme pour l'insertion".mysqli_error($conn);
+        
+       }
+      
     ?>  
 
 </body>

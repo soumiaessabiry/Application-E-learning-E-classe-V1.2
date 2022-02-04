@@ -54,10 +54,38 @@
 							</thead>
 
 							<tbody style="height: 352px; text-align:center">
-									<?php
-									
-										     
-									?>	
+					     <?php
+								
+								$sql=" SELECT * FROM students";
+								$res=mysqli_query($conn,$sql);
+								if ($res) {
+								  echo" there problem in retrive user data".mysqli_errno($conn);
+	
+								}
+						     	$student= mysqli_fetch_array($res);
+						    	while ( $student= mysqli_fetch_array($res)) {
+										
+	                                      	echo'
+													<tr style=" border-bottom-width: 11px;" >
+														<tr style=" border-bottom-width: 11px;" >
+													
+														<td scope="row">
+															<img src="photo2.jpg" alt="Pro-img" width="65" height="55">
+														</td>
+														<td>'. $student['id'].'</td>
+														<td>'. $student['name'].'</td>
+														<td>'. $student['email'].'</td>
+														<td>'. $student['enroll_number'].'</td>
+														<td>'. $student['date_of_admission'].'</td>
+														<td class="text-primary align-middle">
+															<i class="fas fa-pen pe-3"></i>
+															<i class="fas fa-trash"></i>
+														</td>
+												    </tr>';									
+							                    }
+
+								
+					     ?>	
 							</tbody>
 					    </table>
 					</div> 
@@ -70,6 +98,7 @@
  <!-- 
 	 	echo'
 													<tr style=" border-bottom-width: 11px;" >
+														<tr style=" border-bottom-width: 11px;" >
 													
 														<td scope="row">
 															<img src="photo2.jpg" alt="Pro-img" width="65" height="55">
@@ -83,5 +112,7 @@
 															<i class="fas fa-pen pe-3"></i>
 															<i class="fas fa-trash"></i>
 														</td>
+												</tr>';	
+  -->
 												</tr>';	
   -->
