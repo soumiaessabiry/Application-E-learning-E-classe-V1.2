@@ -57,6 +57,10 @@
                                                         <td>'. $course['duree'].'</td>
                                                         <td>'. $course['discription'].'</td>
                                                         <td>'. $course['prix'].'</td>
+                                                        <td class="text-primary ">
+														<a href="deletcour.php?id='. $course['id'].'"><i class="fas fa-trash"></i></i></a>
+													</td>
+                                                        
                                                 </tr>';	
                                             }
                                             mysqli_close($conn);

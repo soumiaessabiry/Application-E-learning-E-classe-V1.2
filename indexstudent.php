@@ -72,7 +72,7 @@
 													<td>'. $student['date_of_admission'].'</td>
 													<td class="text-primary align-middle">
 														<a href="modifier.php"><i class="fas fa-pen pe-3"></i></a>
-														<a href=""><i class="fas fa-trash"></i></i></a>
+														<a href="deletstuent.php?id='. $student['id'].'"><i class="fas fa-trash"></i></i></a>
 														
 													</td>
 											</tr>';	
