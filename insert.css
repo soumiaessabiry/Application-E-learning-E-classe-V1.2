@@ -43,20 +43,21 @@ input[type=email]{
 	font-size: 17px;
 	border-color: black;
 }
-input[type=date] {
+input[type=date]{
 	padding: 10px;
 	border-radius: 10px;
 	width: 210px;
 	font-size: 17px;
 	border-color: black;
 }
-input[type=number] {
+input[type=number]{
 	padding: 10px;
 	border-radius: 10px;
 	width: 210px;
 	font-size: 17px;
 	border-color: black;
 }
+
 input[type=submit]{
 	font-family: raleway;
 	border-radius: 10px;
@@ -71,10 +72,11 @@ input[type=submit]:hover{
 	background-color: #77a8f7;
 	border: 2px solid #77a8f7;
 }
-
-@media screen and (max-width:800px) {
-    form{
-        width: 400px;
+@media screen and (max-width :800px){
+    form {
+        width: 400px !important;
     }
     
 }
+
+

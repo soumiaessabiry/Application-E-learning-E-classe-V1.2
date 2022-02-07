@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment </title>
+    <title>course </title>
     <link rel="stylesheet" href="stylepa.css">
     <link rel="stylesheet" href="styleboot/css/bootstrap.min.css">
     <link rel="stylesheet" href="styleboot/js/bootstrap.min.js">
@@ -25,9 +25,9 @@
             <?php include('sidebar.php');?>
             <div class="col "><!-- col2-->
                 <?php include 'navbar.php' ?>
-                <div class="d-flex justify-content-between mt-3   ">
+                <div class="d-flex justify-content-between mt-3 ">
                     <div >
-                        <a href="addpyment.php " class="fs-3 fw-bold me-3 ">payment details</a>
+                        <a href="addcours.php" class="fs-3 fw-bold me-3 ">Course</a>
                     </div>
                     <div class="d-flex justify-content-between align-items-center gap-3">
                         <i class="bi bi-chevron-expand fs-4 fw-bold" style="color:#00C1FE;"></i>
@@ -38,31 +38,25 @@
                 <div class="table-responsive-md">
                        <table  width="100%" style="height: 352px; text-align:center" class="table table-hover bg-light  fw-bold" >
                             <tr class="bg-light">
-                                <td>id</td>
-                                <td>Name</td>
-                                <td>Payment Schedule</td>
-                                <td>Bill Number</td>
-                                <td>Amount Paid</td>
-                                <td>Balance amount</td>
-                                <td>Date</td>
+                                <th>id</th>
+                                <th>nom de langage</th>
+                                <th>duree de coure</th>
+                                <th>discription</th>
+                                <th>Prix</th>
                             </tr>
                             <tbody style="height: 352px; text-align:center">
                                 <?php
-                                            $query=" SELECT * FROM `payment_details` ";
-                                            $paym=mysqli_query($conn,$query);
-                                            while ($payment=mysqli_fetch_array($paym)) {//payment=arrary and['id .. in table student]
+                                            $query=" SELECT * FROM `courses` ";
+                                            $cour=mysqli_query($conn,$query);
+                                            while ($course=mysqli_fetch_array($cour)) {//payment=arrary and['id .. in table student]
                                                     echo'
                                                     <tr style=" border-bottom-width: 11px;" >
-                                                        <td>'. $payment['id'].'</td>
-                                                        <td>'. $payment['name'].'</td>
-                                                        <td>'. $payment['payment _schedule'].'</td>
-                                                        <td>'. $payment['bill_number'].'</td>
-                                                        <td>'. $payment['amount_paid'].'</td>
-                                                        <td>'. $payment['balance_amount'].'</td>
-                                                        <td>'. $payment['date'].'</td>
-                                                        <td class="text-primary align-middle">
-                                                        <i class="far fa-eye text-info"></i>
-                                                        </td>
+                                                    
+                                                        <td>'. $course['id'].'</td>
+                                                        <td>'. $course['nom'].'</td>
+                                                        <td>'. $course['duree'].'</td>
+                                                        <td>'. $course['discription'].'</td>
+                                                        <td>'. $course['prix'].'</td>
                                                 </tr>';	
                                             }
                                             mysqli_close($conn);

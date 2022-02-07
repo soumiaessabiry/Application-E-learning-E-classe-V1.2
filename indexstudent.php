@@ -1,8 +1,7 @@
         <!DOCTYPE html>
         <html lang="en">
 			<?php
-			include 'configdb.php';
-			
+			include "connexion.php";
 			?>
 
         <head>
@@ -21,7 +20,7 @@
 			
         </head>
         <body>
-            <div class="container-fluid">
+            <div class="container-fluid ">
 				<?php include('sidebar.php'); ?>
 					<!-- ******************************** search******************************************* -->
 					<div class=" col"  >
@@ -34,7 +33,7 @@
 								<i class="bi bi-chevron-expand fs-2 fw-bold" style="color:#00C1FE;"></i>
 								<div> 
 								<form class="d-flex">
-									<a href="Addstusent.php"><button type="button" class="btn" style="background:#00C1FE ;">ADD NEW STUDENT</button>	</a>								</form>
+									<a href="insrte.php"><button type="button" class="btn" style="background:#00C1FE ;">ADD NEW STUDENT</button>		</a>							</form>
 								</div>
 							</div>
 						</div>
@@ -44,6 +43,7 @@
 							<thead>
 									       <tr class="bg-light mt-5" style="color: #ACACAC;  height: 70px;">
 												<th scope="col"></th>
+												<th scope="col"  class="align-middle">id</th>
 												<th scope="col"  class="align-middle">Name</th>
 												<th scope="col" class="align-middle">Email</th>
 												<th scope="col" class="align-middle">Phone</th>
@@ -54,65 +54,40 @@
 							</thead>
 
 							<tbody style="height: 352px; text-align:center">
-					     <?php
-								
-								$sql=" SELECT * FROM students";
-								$res=mysqli_query($conn,$sql);
-								if ($res) {
-								  echo" there problem in retrive user data".mysqli_errno($conn);
-	
-								}
-						     	$student= mysqli_fetch_array($res);
-						    	while ( $student= mysqli_fetch_array($res)) {
-										
-	                                      	echo'
-													<tr style=" border-bottom-width: 11px;" >
-														<tr style=" border-bottom-width: 11px;" >
-													
-														<td scope="row">
-															<img src="photo2.jpg" alt="Pro-img" width="65" height="55">
-														</td>
-														<td>'. $student['id'].'</td>
-														<td>'. $student['name'].'</td>
-														<td>'. $student['email'].'</td>
-														<td>'. $student['enroll_number'].'</td>
-														<td>'. $student['date_of_admission'].'</td>
-														<td class="text-primary align-middle">
-															<i class="fas fa-pen pe-3"></i>
-															<i class="fas fa-trash"></i>
-														</td>
-												    </tr>';									
-							                    }
+									<?php
+										 $query="SELECT * FROM `students` ";
+										 $data=mysqli_query($conn,$query);
+										 while ($student=mysqli_fetch_array($data)) {//students=arrary and['id .. in table student]
+												echo'
+												<tr style=" border-bottom-width: 11px;" >
+												
+													<td scope="row">
+														<img src="photo2.jpg" alt="Pro-img" width="65" height="55">
+													</td>
+													<td>'. $student['id'].'</td>
+													<td>'. $student['name'].'</td>
+													<td>'. $student['email'].'</td>
+													<td>'. $student['phone'].'</td>
+													<td>'. $student['enroll_number'].'</td>
+													<td>'. $student['date_of_admission'].'</td>
+													<td class="text-primary align-middle">
+														<a href="modifier.php"><i class="fas fa-pen pe-3"></i></a>
+														<a href=""><i class="fas fa-trash"></i></i></a>
+														
+													</td>
+											</tr>';	
+										 }
+										 mysqli_close($conn);
 
-								
-					     ?>	
+									?>	
 							</tbody>
 					    </table>
 					</div> 
-      	</div> 
+      	</div>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
    </body>
  </html>
- <!-- 
-	 	echo'
-													<tr style=" border-bottom-width: 11px;" >
-														<tr style=" border-bottom-width: 11px;" >
-													
-														<td scope="row">
-															<img src="photo2.jpg" alt="Pro-img" width="65" height="55">
-														</td>
-														<td>'. $p['Name'].'</td>
-														<td>'. $p['Email'].'</td>
-														<td>'. $p['Phone'].'</td>
-														<td>'. $p['Enroll number'].'</td>
-														<td>'. $p['Date of admission'].'</td>
-														<td class="text-primary align-middle">
-															<i class="fas fa-pen pe-3"></i>
-															<i class="fas fa-trash"></i>
-														</td>
-												</tr>';	
-  -->
-												</tr>';	
-  -->
+
+ 
