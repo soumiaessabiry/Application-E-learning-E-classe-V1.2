@@ -48,7 +48,7 @@
                                 <?php
                                             $query=" SELECT * FROM `courses` ";
                                             $cour=mysqli_query($conn,$query);
-                                            while ($course=mysqli_fetch_array($cour)) {//payment=arrary and['id .. in table student]
+                                            while ($course=mysqli_fetch_array($cour)) {//payment=arrary and['id .. in table cours]
                                                     echo'
                                                     <tr style=" border-bottom-width: 11px;" >
                                                     
