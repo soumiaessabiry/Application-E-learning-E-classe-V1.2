@@ -16,7 +16,7 @@
     <form action="#" method="POST">
         <label  class="label-class">
 			 Nom:
-			<input type="text" name="nome" >
+			<input type="text"  name="nome" >
 		</label>
 		  <?php //echo $nom; ?>
 		<br><br>

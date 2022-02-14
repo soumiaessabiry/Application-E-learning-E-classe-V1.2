@@ -33,7 +33,7 @@
 								<i class="bi bi-chevron-expand fs-2 fw-bold" style="color:#00C1FE;"></i>
 								<div> 
 								<form class="d-flex">
-									<a href="insrte.php"><button type="button" class="btn" style="background:#00C1FE ;">ADD NEW STUDENT</button>		</a>							</form>
+									<a href="insrtestuent.php"><button type="button" class="btn" style="background:#00C1FE ;">ADD NEW STUDENT</button>		</a>							</form>
 								</div>
 							</div>
 						</div>
@@ -70,7 +70,7 @@
 													<td>'. $student['phone'].'</td>
 													<td>'. $student['enroll_number'].'</td>
 													<td>'. $student['date_of_admission'].'</td>
-													<td class="text-primary align-middle">
+													<td class="text-primary ">
 														<a href="modifier.php"><i class="fas fa-pen pe-3"></i></a>
 														<a href="deletstuent.php?id='. $student['id'].'"><i class="fas fa-trash"></i></a>
 														
